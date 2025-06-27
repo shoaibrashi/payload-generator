@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payload Generator</title>
+</head>
+<body>
+    <h1>Custom Payload Generator</h1>
+    <form method="POST">
+        <label>Select Module:</label><br>
+        <select name="module">
+            <option value="xss">XSS</option>
+            <option value="sqli">SQLi</option>
+            <option value="cmdi">Command Injection</option>
+        </select><br><br>
+
+        <label>Encoding:</label><br>
+        <select name="encoding">
+            <option value="">None</option>
+            <option value="base64">Base64</option>
+            <option value="url">URL</option>
+            <option value="hex">Hex</option>
+        </select><br><br>
+
+        <input type="submit" value="Generate">
+    </form>
+
+    {% if payloads %}
+        <h2>Generated Payloads</h2>
+        <ul>
+            {% for payload in payloads %}
+                <li>{{ payload }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
